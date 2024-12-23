@@ -18,7 +18,6 @@ C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\bin\Debug\net8.0-windows\runt
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.csproj.AssemblyReference.cache
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.AddTaskForm.resources
-C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.Form1.resources
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.DashboardForm.resources
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.csproj.GenerateResource.cache
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.GeneratedMSBuildEditorConfig.editorconfig
@@ -32,3 +31,12 @@ C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\Sist
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.genruntimeconfig.cache
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\ref\SistemTugas.dll
 C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.Properties.Resources.resources
+C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.sourcelink.json
+C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.EditTaskForm.resources
+C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.linkRegister.resources
+C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.Register.resources
+C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.RegisterForm.resources
+C:\Users\ASUS\source\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.csproj.AssemblyReference.cache
+C:\Users\ASUS\source\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.dll
+C:\Users\ASUS\source\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\refint\SistemTugas.dll
+C:\Users\ASUS\source\SistemTugas\SistemTugas\obj\Debug\net8.0-windows\SistemTugas.pdb

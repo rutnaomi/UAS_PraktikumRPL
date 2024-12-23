@@ -2,9 +2,9 @@ using MySql.Data.MySqlClient;
 
 namespace SistemTugas
 {
-    public partial class Form1 : Form
+    public partial class linkRegister : Form
     {
-        public Form1()
+        public linkRegister()
         {
             InitializeComponent();
         }
@@ -16,50 +16,81 @@ namespace SistemTugas
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text;
-            string password = txtPassword.Text;
+            string email = txtEmail.Text.Trim();
+            string password = txtPassword.Text.Trim();
 
-            using (var connection = DBHelper.GetConnection())
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                try
+                MessageBox.Show("Email dan password harus diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                using (var connection = DBHelper.GetConnection())
                 {
                     connection.Open();
-                    string query = "SELECT id FROM pengguna WHERE email = @Email AND password = @Password";
+
+                    // Validasi email dan password
+                    string query = "SELECT id, nama FROM pengguna WHERE email = @Email AND password = @Password";
                     using (var cmd = new MySqlCommand(query, connection))
                     {
                         cmd.Parameters.AddWithValue("@Email", email);
                         cmd.Parameters.AddWithValue("@Password", password);
-
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            int userId = Convert.ToInt32(result);
+                            if (reader.Read())
+                            {
+                                int userId = reader.GetInt32("id");
+                                string fullName = reader.GetString("nama");
 
-                            // Simpan ID pengguna untuk digunakan nanti
-                            Session.UserId = userId;
+                                UserSession.UserId = userId;
+                                UserSession.UserName = fullName;
 
-                            // Buka Form Dashboard
-                            DashboardForm dashboard = new DashboardForm();
-                            this.Hide();
-                            dashboard.ShowDialog();
-                            this.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Email atau Password salah.");
+                                MessageBox.Show($"Selamat datang, {fullName}!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                this.Hide();
+                                DashboardForm dashboard = new DashboardForm();
+                                dashboard.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email atau password salah.", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void linkRegister_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+
+            //RegisterForm registerForm = new RegisterForm();
+            //registerForm.ShowDialog();
+
+            //this.Show();
+        }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.ShowDialog();
+
+            this.Show();
         }
     }
 }

@@ -63,9 +63,59 @@ namespace SistemTugas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _୨୧_ᵗᵉᵐᵖˡᵃᵗᵉˢ_ᵎᵎᵎ {
+            get {
+                object obj = ResourceManager.GetObject("୨୧ ᵗᵉᵐᵖˡᵃᵗᵉˢ ᵎᵎᵎ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__12_ {
+            get {
+                object obj = ResourceManager.GetObject("download (12)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__12_1 {
+            get {
+                object obj = ResourceManager.GetObject("download (12)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__12_2 {
+            get {
+                object obj = ResourceManager.GetObject("download (12)2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap satu {
             get {
                 object obj = ResourceManager.GetObject("satu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap the_risk {
+            get {
+                object obj = ResourceManager.GetObject("the risk", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

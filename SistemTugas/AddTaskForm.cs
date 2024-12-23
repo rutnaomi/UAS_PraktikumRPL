@@ -36,28 +36,37 @@ namespace SistemTugas
                 return;
             }
 
+            int penggunaId = Session.UserId; 
+
             using (var connection = DBHelper.GetConnection())
             {
+                connection.Open();
                 try
                 {
-                    connection.Open();
-                    string query = "INSERT INTO tugas (pengguna_id, nama_tugas, tenggat_tugas, prioritas, status)" + "VALUES (@UserId, @Nama, @Tenggat, @Prioritas, 'Belum')";
-
+                    string query = "INSERT INTO tugas (nama_tugas, tenggat_waktu, prioritas, status, pengguna_id) " +
+                                   "VALUES (@Nama, @Tenggat, @Prioritas, 0, @UserId)";
                     using (var cmd = new MySqlCommand(query, connection))
                     {
-                        cmd.Parameters.AddWithValue("@UserId", Session.UserId);
                         cmd.Parameters.AddWithValue("@Nama", namaTugas);
-                        cmd.Parameters.AddWithValue("@Tenggat", tenggatWaktu);
+                        cmd.Parameters.AddWithValue("@Tenggat", tenggatWaktu.ToString("yyyy-MM-dd HH:mm:ss"));
                         cmd.Parameters.AddWithValue("@Prioritas", prioritas);
+                        cmd.Parameters.AddWithValue("@UserId", penggunaId);
+
+                        MessageBox.Show($"Debug Info: Query is running with UserId = {penggunaId}");
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Tugas berhasil ditambahkan! Jangan Lupa Dikerjakan Ya!!");
+                        MessageBox.Show("Tugas berhasil ditambahkan!");
                         this.Close();
                     }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("MySQL Error: " + ex.Message);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
                 }
+
             }
         }
     }

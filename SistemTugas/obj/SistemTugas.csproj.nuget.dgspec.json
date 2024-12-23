@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\source\\repos\\SistemTugas\\SistemTugas\\SistemTugas.csproj": {}
+    "C:\\Users\\ASUS\\source\\SistemTugas\\SistemTugas\\SistemTugas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\source\\repos\\SistemTugas\\SistemTugas\\SistemTugas.csproj": {
+    "C:\\Users\\ASUS\\source\\SistemTugas\\SistemTugas\\SistemTugas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\SistemTugas\\SistemTugas\\SistemTugas.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\source\\SistemTugas\\SistemTugas\\SistemTugas.csproj",
         "projectName": "SistemTugas",
-        "projectPath": "C:\\Users\\ASUS\\source\\repos\\SistemTugas\\SistemTugas\\SistemTugas.csproj",
+        "projectPath": "C:\\Users\\ASUS\\source\\SistemTugas\\SistemTugas\\SistemTugas.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\source\\repos\\SistemTugas\\SistemTugas\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\source\\SistemTugas\\SistemTugas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddTaskForm));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -41,8 +42,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = SystemColors.ButtonHighlight;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(231, 53);
+            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Location = new Point(229, 102);
             label1.Name = "label1";
             label1.Size = new Size(204, 38);
             label1.TabIndex = 0;
@@ -51,8 +54,10 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.LightSkyBlue;
             label2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(87, 139);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(89, 198);
             label2.Name = "label2";
             label2.Size = new Size(108, 23);
             label2.TabIndex = 1;
@@ -61,8 +66,9 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.LightSkyBlue;
             label3.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(87, 213);
+            label3.Location = new Point(89, 272);
             label3.Name = "label3";
             label3.Size = new Size(132, 23);
             label3.TabIndex = 2;
@@ -71,8 +77,9 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.LightSkyBlue;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(87, 287);
+            label4.Location = new Point(89, 346);
             label4.Name = "label4";
             label4.Size = new Size(77, 23);
             label4.TabIndex = 3;
@@ -81,8 +88,9 @@
             // 
             // txtNamaTugas
             // 
+            txtNamaTugas.BackColor = Color.WhiteSmoke;
             txtNamaTugas.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNamaTugas.Location = new Point(284, 138);
+            txtNamaTugas.Location = new Point(286, 197);
             txtNamaTugas.Multiline = true;
             txtNamaTugas.Name = "txtNamaTugas";
             txtNamaTugas.Size = new Size(278, 34);
@@ -90,36 +98,42 @@
             // 
             // dtpTenggatWaktu
             // 
-            dtpTenggatWaktu.Location = new Point(284, 213);
+            dtpTenggatWaktu.CalendarMonthBackground = Color.Gainsboro;
+            dtpTenggatWaktu.Location = new Point(286, 272);
             dtpTenggatWaktu.Name = "dtpTenggatWaktu";
             dtpTenggatWaktu.Size = new Size(271, 27);
             dtpTenggatWaktu.TabIndex = 5;
             // 
             // cmbPrioritas
             // 
+            cmbPrioritas.BackColor = Color.WhiteSmoke;
+            cmbPrioritas.ForeColor = Color.Black;
             cmbPrioritas.FormattingEnabled = true;
             cmbPrioritas.Items.AddRange(new object[] { "Tinggi", "Sedang", "Rendah" });
-            cmbPrioritas.Location = new Point(284, 287);
+            cmbPrioritas.Location = new Point(286, 346);
             cmbPrioritas.Name = "cmbPrioritas";
-            cmbPrioritas.Size = new Size(151, 28);
+            cmbPrioritas.Size = new Size(271, 28);
             cmbPrioritas.TabIndex = 6;
             // 
             // btnSimpan
             // 
+            btnSimpan.BackColor = Color.LightSkyBlue;
             btnSimpan.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSimpan.Location = new Point(306, 365);
+            btnSimpan.Location = new Point(286, 409);
             btnSimpan.Name = "btnSimpan";
             btnSimpan.Size = new Size(94, 36);
             btnSimpan.TabIndex = 7;
             btnSimpan.Text = "Simpan";
-            btnSimpan.UseVisualStyleBackColor = true;
+            btnSimpan.UseVisualStyleBackColor = false;
             btnSimpan.Click += btnSimpan_Click;
             // 
             // AddTaskForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(668, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(668, 524);
             Controls.Add(btnSimpan);
             Controls.Add(cmbPrioritas);
             Controls.Add(dtpTenggatWaktu);

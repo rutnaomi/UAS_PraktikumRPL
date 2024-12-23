@@ -14,6 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SistemTugas
-build_property.ProjectDir = C:\Users\ASUS\source\repos\SistemTugas\SistemTugas\
+build_property.ProjectDir = C:\Users\ASUS\source\SistemTugas\SistemTugas\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -18,16 +18,17 @@ namespace SistemTugas
         {
             InitializeComponent();
             dgvTasks.CurrentCellDirtyStateChanged += dgvTasks_CurrentCellDirtyStateChanged;
+            dgvTasks.CellContentClick += dgvTasks_CellContentClick;
         }
 
         private void LoadTasks()
         {
             using (var connection = DBHelper.GetConnection())
             {
+                connection.Open();
                 try
                 {
-                    connection.Open();
-                    string query = "SELECT nama_tugas, tenggat_waktu, prioritas, status FROM tugas WHERE pengguna_id = @UserId";
+                    string query = "SELECT id, nama_tugas, tenggat_waktu, prioritas, status FROM tugas WHERE pengguna_id = @UserId";
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     adapter.SelectCommand.Parameters.AddWithValue("@UserId", Session.UserId);
 
@@ -49,10 +50,81 @@ namespace SistemTugas
                         dgvTasks.Columns.Add(statusColumn);
                         dgvTasks.Columns["id"].Visible = false;
                     }
+
+                    AddActionButtons();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private void AddActionButtons()
+        {
+            if (!dgvTasks.Columns.Contains("Edit"))
+            {
+                DataGridViewButtonColumn editColumn = new DataGridViewButtonColumn
+                {
+                    Name = "Edit",
+                    HeaderText = "Edit",
+                    Text = "Edit",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvTasks.Columns.Add(editColumn);
+            }
+
+            if (!dgvTasks.Columns.Contains("Delete"))
+            {
+                DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn
+                {
+                    Name = "Delete",
+                    HeaderText = "Hapus",
+                    Text = "Hapus",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvTasks.Columns.Add(deleteColumn);
+            }
+        }
+
+        private void dgvTasks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if (e.ColumnIndex == dgvTasks.Columns["Edit"].Index)
+                {
+                    int taskId = Convert.ToInt32(dgvTasks.Rows[e.RowIndex].Cells["id"].Value);
+                    string taskName = dgvTasks.Rows[e.RowIndex].Cells["nama_tugas"].Value.ToString();
+                    DateTime dueDate = Convert.ToDateTime(dgvTasks.Rows[e.RowIndex].Cells["tenggat_waktu"].Value);
+                    string priority = dgvTasks.Rows[e.RowIndex].Cells["prioritas"].Value.ToString();
+
+                    EditTaskForm editForm = new EditTaskForm(taskId, taskName, dueDate, priority);
+                    if (editForm.ShowDialog() == DialogResult.OK)
+                    {
+                        LoadTasks(); // Memuat ulang tugas setelah perubahan
+                    }
+                }
+                else if (e.ColumnIndex == dgvTasks.Columns["Delete"].Index)
+                {
+                    int taskId = Convert.ToInt32(dgvTasks.Rows[e.RowIndex].Cells["id"].Value);
+
+                    DialogResult result = MessageBox.Show("Apakah Anda yakin ingin menghapus tugas ini?", "Konfirmasi Hapus", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        using (var connection = DBHelper.GetConnection())
+                        {
+                            connection.Open();
+                            string query = "DELETE FROM tugas WHERE id = @TaskId";
+                            using (var cmd = new MySqlCommand(query, connection))
+                            {
+                                cmd.Parameters.AddWithValue("@TaskId", taskId);
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+
+                        LoadTasks();
+                        MessageBox.Show("Tugas berhasil dihapus.");
+                    }
                 }
             }
         }
@@ -105,6 +177,12 @@ namespace SistemTugas
 
         private void btnAddTask_Click(object sender, EventArgs e)
         {
+            if (Session.UserId != 0) 
+            {
+                MessageBox.Show("Anda belum login. Silakan login terlebih dahulu.");
+                return; // Jangan lanjutkan membuka form AddTaskForm jika belum login
+            }
+
             AddTaskForm addTaskForm = new AddTaskForm();
             addTaskForm.ShowDialog();
 
